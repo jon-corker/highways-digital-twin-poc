@@ -442,8 +442,35 @@ id
 --
 }
 
+entity "process_environment_drainage.isobasin_properties" {
+basin_id
+--
+geom
+height_change
+flow_distance
+is_stream
+retardence_coefficient_min
+retardence_coefficient_max
+area
+runoff_coefficient_min
+runoff_coefficient_max
+}
 
+entity "process_environment_drainage.isobasin_links" {
+id
+--
+upstream_basin_id
+downstream_basin_id
+upstream_area
+}
 
+entity "process_ground_geotech.geomorphons" {
+geomorphon_class
+}
+
+entity "process_ground_geotech.slope" {
+slope
+}
 
 "raw.human_ncc_maintenance" -- "process_road_scanner.maintenance_clusters" : cluster_centers
 "raw.road_ncc_scanner" -- "process_road_scanner.points" : scanner spatial referencing
@@ -454,8 +481,6 @@ id
 "raw.roads_os_roads" -- "process_road.authoritative_network" : network conflation
 "raw.human_ons_traffic" -- "process_road.authoritative_network" : network conflation
 "raw.human_ncc_heirarchy" -- "process_road.authoritative_network" : network conflation
-
-
 
 "process_road_scanner.cluster_centers" -- "process_road_scanner.characterised_clusters" : characterisation
 "process_road.authoritative_network" -- "process_road_scanner.characterised_clusters" : characterisation
@@ -469,18 +494,6 @@ id
 "process_road_scanner.texture_forecast"-- service.road_scanner_forecast : scoring
 "process_road_scanner.maintenance_clusters" -- "process_road_scanner.characterised_clusters" : characterisation
 "process_road_scanner.clustered_points" -- "service.road_scanner_condition" :sql join
-
-
-entity "process_ground_geotech.geomorphons" {
-id
---
-}
-
-
-entity "process_ground_geotech.slope" {
-id
---
-}
 
 "raw.ground_ea_dtm" -- "process_ground_geotech.geomorphons" : raster analysis
 "raw.ground_ea_dtm" -- "process_ground_geotech.slope" : raster analysis
