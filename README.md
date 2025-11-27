@@ -20,8 +20,12 @@ Technologies and Standards
 ---
 
 Database: PostgreSQL and Postgis
+
 Modelling: PlantUML
-API Specification:
+
+API Specification: OpenAPI 3.0
+
+Notebooks: Tested on Python 3.13 
 
 Discalimer
 ---
