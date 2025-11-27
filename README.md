@@ -3,7 +3,7 @@ Highways Digital Twin - API, data models, and analytical notebooks
 
 This repository contains the indicative data models, data queries, and service interface definitions supporting a cross-asset highways digital twin. It accompanies an academic reseach project focused on network-level digital twins for highways asset management. 
 
-The repository demonstrates how authoritative network data, condition observations, and predictive forecastss can be integrated into unified views and exposed via restful APIs. 
+The repository demonstrates how authoritative network data, condition observations, and predictive forecasts can be integrated into unified views and exposed via restful APIs. 
 
 Directory overview:
 ---
