@@ -1,0 +1,145 @@
+openapi: 3.0.3
+info:
+  title: DT PoC service API 
+  description: >
+    Indicative OpenAPI specification for accessing the API,
+    scanner condition, forecast condition, and contextual spatial datasets.
+  version: "1.0.0"
+
+servers:
+  - url: https://api.dt_poc.org/v1
+
+paths:
+
+  /authoritative-network/{section_ref}:
+    get:
+      summary: Get authoritative road network by section reference value
+      parameters:
+        - name: section_ref
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Geometry and attributes for the selected road section
+          content:
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/GeoJSONFeatureCollection"
+
+  /scanner-condition/historic/{section_ref}:
+    get:
+      summary: Historic SCANNER condition points by section reference
+      parameters:
+        - name: section_ref
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Historic condition points
+          content:
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/GeoJSONFeatureCollection"
+
+  /scanner-condition/forecast/{section_ref}:
+    get:
+      summary: Forecast scanner condition points by section reference
+      parameters:
+        - name: section_ref
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Forecast condition points
+          content:
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/GeoJSONFeatureCollection"
+
+  /geotechnical-inventory/{section_ref}:
+    get:
+      summary: geotechnical inventory polygons intersecting the supplied section reference
+      parameters:
+        - name: section_ref
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Intersecting geotechnical polygons
+          content:
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/GeoJSONFeatureCollection"
+
+  /environmental-context/{section_ref}:
+    get:
+      summary: Drainage polygons intersecting the road section, to support estimation of drainage load.
+      parameters:
+        - name: section_ref
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Intersecting environmental context polygon features
+          content:
+            application/geo+json:
+              schema:
+                $ref: "#/components/schemas/GeoJSONFeatureCollection"
+
+
+  /digital-twin/section/{section_ref}:
+    get:
+      summary: Full multi-layer DT view for a road section
+      parameters:
+        - name: section_ref
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Full DT payload in GeoJSON format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DigitalTwinResponse"
+
+
+components:
+
+  schemas:
+
+    GeoJSONFeatureCollection:
+      type: object
+      properties:
+        type:
+          type: string
+          example: FeatureCollection
+        features:
+          type: array
+          items:
+            type: object
+
+    DigitalTwinResponse:
+      type: object
+      properties:
+        authoritative network:
+          $ref: "#/components/schemas/GeoJSONFeatureCollection"
+        historic condition:
+          $ref: "#/components/schemas/GeoJSONFeatureCollection"
+        forecast condition:
+          $ref: "#/components/schemas/GeoJSONFeatureCollection"
+        geotechnical inventory:
+          $ref: "#/components/schemas/GeoJSONFeatureCollection"
+        context:
+          $ref: "#/components/schemas/GeoJSONFeatureCollection"
