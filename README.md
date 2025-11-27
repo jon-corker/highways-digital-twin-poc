@@ -14,7 +14,7 @@ Directory overview:
 
 */api/* contains an OpenAPI 3.0 YAML specification describing REST API endpoints for the service schema,
 
-*/notebooks/* contains example analytical workflows for pavement condition forecasting using SCANNER data, and drainage modelling using near-time guaged flow and rainfall.
+*/notebooks/* contains example analytical workflows for pavement condition forecasting using SCANNER data, and drainage modelling using near-time gauged flow and rainfall.
 
 Technologies and Standards
 ---
