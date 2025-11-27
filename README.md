@@ -8,13 +8,13 @@ The repository demonstrates how authoritative network data, condition observatio
 Directory overview:
 ---
 
-erd/ contains a plantUML entiry-relationship definition for raw, process and service schemas in the data management layer of the proposed framework. 
+*/erd/* contains a plantUML entiry-relationship definition for raw, process and service schemas in the data management layer of the proposed framework, 
 
-sql/ contains indicative postgis SQL queries and views supporting the tool
+*/sql/* contains indicative postgis SQL queries and views supporting the tool,
 
-api/ contains an OpenAPI 3.0 YAML specification describing REST API endpoints for the service schema
+*/api/* contains an OpenAPI 3.0 YAML specification describing REST API endpoints for the service schema,
 
-notebooks/ contains example analytical workflows for pavement condition forecasting using SCANNER data, and drainage modelling using near-time guaged flow and rainfall.
+*/notebooks/* contains example analytical workflows for pavement condition forecasting using SCANNER data, and drainage modelling using near-time guaged flow and rainfall.
 
 Technologies and Standards
 ---
