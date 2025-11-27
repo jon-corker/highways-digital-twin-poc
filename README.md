@@ -30,4 +30,4 @@ Notebooks: Tested on Python 3.13
 Discalimer
 ---
 
-This repository represents an prototype demonstration supporting ongoing research. It is not intended for production use. 
+This repository represents a prototype demonstration supporting ongoing research. It is not intended for production use. 
