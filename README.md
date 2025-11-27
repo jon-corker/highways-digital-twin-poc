@@ -1,14 +1,14 @@
 Highways Digital Twin - API, data models, and analytical notebooks
 ===
 
-This repository contains the indicative data models, data queries, and service interface definitions supporting a cross-asset highways digital twin. It accompanies an academic reseach project focused on network-level digital twins for highways asset management. 
+This repository contains the indicative data models, data queries, and service interface definitions supporting a Proof-of-Concept (PoC) cross-asset highways Digital Twin (DT). It accompanies an academic reseach project focused on network-level digital twins for highways asset management. 
 
 The repository demonstrates how authoritative network data, condition observations, and predictive forecasts can be integrated into unified views and exposed via restful APIs. 
 
 Directory overview:
 ---
 
-*/erd/* contains a plantUML entiry-relationship definition for raw, process and service schemas in the data management layer of the proposed framework, 
+*/erd/* contains a plantUML entiry-relationship definition for raw, process and service schemas in the data management layer of the PoC, 
 
 */sql/* contains indicative postgis SQL queries and views supporting the tool,
 
