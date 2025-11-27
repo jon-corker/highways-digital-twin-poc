@@ -1,0 +1,513 @@
+@startuml
+
+
+
+entity "raw.ground_ea_dtm" {
+elevation_value
+}
+
+entity "raw.env_os_water" {
+id
+--
+flowdirection
+length
+length_uom
+level
+primacy
+Catchment
+Permanence
+managedNav
+gradient
+width
+}
+
+entity "raw.ground_os_topo" {
+id
+--
+geom
+fid
+featurecode
+version
+versiondate
+theme
+calculatedareavalue
+changedate
+reasonforchange
+descriptivegroup
+descriptiveterm
+make
+physicallevel
+physicalpresence
+poly_broken
+}
+
+entity "raw.ground_bgs_geology" {
+id
+--
+geom
+goid
+lex
+lex_d
+lex_rcs
+rcs
+rcs_d
+max_time_d
+min_time_d
+max_index
+lex_rcs_d
+bgsref
+sheet
+released
+nom_scale
+layer
+path
+
+}
+
+entity "process_environment_drainage.runoff_lookup" {
+id
+--
+cover_type
+runoff_coeff_lower
+runoff_coeff_upper
+retardence_coeff_lower
+retardence_coeff_upper
+}
+
+entity "raw.road_ncc_scanner" {
+uid
+---
+section_ref
+snode
+survey_length
+survey_date
+defect
+lane_ref
+start_chainage
+end_chainage
+parameter
+value
+}
+
+entity "raw.human_ncc_maintenance" {
+id
+--
+geom
+central_asset_id
+feature_id
+road_name
+feature_location
+site_code
+cost
+description
+}
+
+entity "raw.human_ons_traffic" {
+id
+--
+geom
+road_no_
+road_class
+link_no_
+old_link_no_
+location__from___to_
+aadt_2018
+hgv_perc
+hgv_aadf
+psv_perc
+urban_rural
+district
+location_of_count_aadt
+type_of_count_aadt
+year_of_count_aadt
+type_and_year_of_count_aadt
+location_of_count_hgv
+type_of_count_hgv
+year_of_count_hgv
+type_and_year_of_count_hgv
+length_metres
+aadt_label
+hgv_perc_label
+hgv_aadf_label
+}
+
+entity "raw.human_ncc_heirarchy" {
+id
+--
+geom
+central_asset_id
+feature_id
+road_name
+feature_location
+site_code
+feature_number
+feature_type_name
+primary_measurement
+unit_of_measurement
+street_name
+centroid_easting
+centroid_northing
+feature_group_code
+extent_easting_1
+extent_northing_1
+extent_easting_2
+extent_northing_2
+layer
+speed_limit
+}
+
+entity "raw.roads_os_roads" {
+ogc_fid
+--
+gml_id
+identifier
+localid
+namespace
+beginlifespanversion
+fictitious
+validfrom
+reasonforchange
+roadclassification
+routehierarchy
+formofway
+trunkroad
+primaryroute
+roadclassificationnumber
+roadname
+roadnamelang
+alternatename
+alternatenamelang
+operationalstate
+provenance
+directionalitytitle
+length
+matchstatus
+alternateidentifieridentifier
+alternateidentifieridentifierscheme
+startgradeseparation
+endgradeseparation
+roadstructure
+cyclefacility
+wholelink
+averagewidth
+minimumwidth
+confidencelevel
+numberoflanes
+direction
+minmaxnumberoflanes
+indirection
+inoppositedirection
+formspartofrole
+formspartofhref
+startnodehref
+endnodehref
+relatedroadareahref
+wkb_geometry
+}
+
+entity "process_road_scanner.pivoted" {
+id
+--
+uid
+event_id
+lspd
+lsur
+ltrc
+lrtm
+lgrd
+lltd
+les1
+ltvv
+ltrv
+lt95
+lrtv
+lovd
+lr10
+lrad
+lctv
+lcrv
+lltx
+lwcl
+lrrt
+llbi
+llrd
+lv10
+lfal
+lltm
+lrbi
+lctm
+ll03
+ledr
+ll10
+les2
+llrt
+llad
+lv3
+lrcr
+lr03
+lt05
+lwcr
+lltv
+lrrd
+ltad
+ledcid
+uid
+lspd
+lsur
+ltrc
+lrtm
+lgrd
+lltd
+les1
+ltvv
+ltrv
+lt95
+lrtv
+lovd
+lr10
+lrad
+lctv
+lcrv
+lltx
+lwcl
+lrrt
+llbi
+llrd
+lv10
+lfal
+lltm
+lrbi
+lctm
+ll03
+ledr
+ll10
+les2
+llrt
+llad
+lv3
+lrcr
+lr03
+lt05
+lwcr
+lltv
+lrrd
+ltad
+ledc
+}
+
+
+entity "process_road_scanner.points" {
+id
+--
+uid
+section_ref
+survey_date
+chainage
+event_id
+geom
+}
+
+
+entity "process_road_scanner.clustered_points" {
+id
+--
+uid
+section_ref
+survey_date
+chainage
+event_id
+geom
+cluster_id
+}
+
+entity "process_road_scanner.maintenance_clusters" {
+id
+--
+uid
+section_ref
+survey_date
+chainage
+event_id
+geom
+cluster_id
+maintenance_group
+}
+
+entity "service.road_scanner_condition" {
+id
+--
+geom
+uid
+section_ref
+survey_date
+chainage
+event_id
+lspd
+lsur
+ltrc
+lrtm
+lgrd
+lltd
+les1
+ltvv
+ltrv
+lt95
+lrtv
+lovd
+lr10
+lrad
+lctv
+lcrv
+lltx
+lwcl
+lrrt
+llbi
+llrd
+lv10
+lfal
+lltm
+lrbi
+lctm
+ll03
+ledr
+ll10
+les2
+llrt
+llad
+lv3
+lrcr
+lr03
+lt05
+lwcr
+lltv
+lrrd
+ltad
+ledcid
+uid
+lspd
+lsur
+ltrc
+lrtm
+lgrd
+lltd
+les1
+ltvv
+ltrv
+lt95
+lrtv
+lovd
+lr10
+lrad
+lctv
+lcrv
+lltx
+lwcl
+lrrt
+llbi
+llrd
+lv10
+lfal
+lltm
+lrbi
+lctm
+ll03
+ledr
+ll10
+les2
+llrt
+llad
+lv3
+lrcr
+lr03
+lt05
+lwcr
+lltv
+lrrd
+ltad
+ledc
+}
+
+entity "process_road.authoritative_network" {
+id
+__
+}
+
+entity "process_road_scanner.cluster_centers" {
+id
+--
+}
+
+entity "process_road_scanner.characterised_clusters" {
+id
+--
+}
+
+
+
+
+"raw.human_ncc_maintenance" -- "process_road_scanner.maintenance_clusters" : cluster_centers
+"raw.road_ncc_scanner" -- "process_road_scanner.points" : scanner spatial referencing
+"raw.road_ncc_scanner" -- "process_road_scanner.pivoted" : scanner spatial referencing
+"process_road_scanner.points" -- "process_road_scanner.clustered_points" : scanner clustering
+"process_road_scanner.clustered_points" -- "process_road_scanner.cluster_centers" : cluster centers
+"process_road_scanner.pivoted" -- "service.road_scanner_condition" : SQL join
+"raw.roads_os_roads" -- "process_road.authoritative_network" : network conflation
+"raw.human_ons_traffic" -- "process_road.authoritative_network" : network conflation
+"raw.human_ncc_heirarchy" -- "process_road.authoritative_network" : network conflation
+
+
+
+"process_road_scanner.cluster_centers" -- "process_road_scanner.characterised_clusters" : characterisation
+"process_road.authoritative_network" -- "process_road_scanner.characterised_clusters" : characterisation
+"raw.ground_bgs_geology" -- "process_road_scanner.characterised_clusters" : characterisation
+"raw.ground_os_topo" -- "process_road_scanner.characterised_clusters" : characterisation
+"process_road_scanner.characterised_clusters" -- "process_road_scanner.roughness_forecast" : forecasting
+"process_road_scanner.characterised_clusters" -- "process_road_scanner.rutting_forecast" : forecasting
+"process_road_scanner.characterised_clusters" -- "process_road_scanner.texture_forecast" : forecasting
+"process_road_scanner.roughness_forecast" -- service.road_scanner_forecast : scoring
+"process_road_scanner.rutting_forecast" -- service.road_scanner_forecast : scoring
+"process_road_scanner.texture_forecast"-- service.road_scanner_forecast : scoring
+"process_road_scanner.maintenance_clusters" -- "process_road_scanner.characterised_clusters" : characterisation
+"process_road_scanner.clustered_points" -- "service.road_scanner_condition" :sql join
+
+
+entity "process_ground_geotech.geomorphons" {
+id
+--
+}
+
+
+entity "process_ground_geotech.slope" {
+id
+--
+}
+
+"raw.ground_ea_dtm" -- "process_ground_geotech.geomorphons" : raster analysis
+"raw.ground_ea_dtm" -- "process_ground_geotech.slope" : raster analysis
+"process_ground_geotech.geomorphons" -- "process_ground_geotech.geomorphons_characterised_vectors" : vectorisation
+"process_ground_geotech.slope" -- "process_ground_geotech.geomorphons_characterised_vectors" : characterisation
+"raw.ground_bgs_geology" -- "process_ground_geotech.geomorphons_characterised_vectors" : characterisation 
+"process_ground_geotech.geomorphons_characterised_vectors" -- service.ground_geotechnical_inventory_network_view : network traversal view
+
+
+"raw.ground_ea_dtm" -- "process_environment_drainage.dtm_filled_sinks" : raster processing
+"process_environment_drainage.dtm_filled_sinks" -- "process_environment_drainage.drainage_ready_dtm" : fill sinks
+"raw.env_os_water" -- "process_environment_drainage.drainage_ready_dtm" : burn streams
+"process_environment_drainage.drainage_ready_dtm" -- "process_environment_drainage.flow_paths" : downlsope distance to stream
+"process_environment_drainage.drainage_ready_dtm" -- "process_environment_drainage.isobasins" :calculate isobasins
+"process_environment_drainage.isobasins" -- "process_environment_drainage.isobasin_links" : extract nodes
+"process_environment_drainage.isobasins" -- "process_environment_drainage.isobasin_properties" : characterise isobasin
+"raw.ground_ea_dtm" -- "process_environment_drainage.isobasin_properties" : characterise isobasin
+"process_environment_drainage.flow_paths" -- "process_environment_drainage.isobasin_properties" : characterise isobasin
+"raw.env_os_water" -- "process_environment_drainage.isobasin_properties" : characterise isobasin
+"raw.ground_os_topo" -- "process_environment_drainage.isobasin_properties" : characterise isobasin
+"process_environment_drainage.runoff_lookup"  -- "process_environment_drainage.isobasin_properties" : characterise isobasin
+"process_environment_drainage.isobasin_links" -- "service.environment_drainage_isobasin_view"
+"process_environment_drainage.isobasin_properties" -- "service.environment_drainage_isobasins"
+
+"process_road.authoritative_network" -- "service.road_authoritative_network"
+
+
+
+
+@enduml
